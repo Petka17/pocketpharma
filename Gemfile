@@ -33,6 +33,15 @@ gem 'jbuilder', '~> 1.2'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# File uploader
+gem "carrierwave"
+
+# XLS import
+gem 'roo'
+
+# Pagination
+gem 'will_paginate', '~> 3.0'
+
 group :development do
 	# Performance Profile
 	gem 'rack-mini-profiler'

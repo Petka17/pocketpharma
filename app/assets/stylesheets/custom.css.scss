@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-// $grayMediumLight: #eaeaea;
+$grayMediumLight: #eaeaea;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -48,7 +48,7 @@ h2 {
   margin-bottom:   30px;
   text-align:    center;
   font-weight:   normal;
-  color:        #eaeaea;
+  color: $grayMediumLight;
 }
 
 p {

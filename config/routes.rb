@@ -4,6 +4,12 @@ Pocketpharma::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :rls_files do
+    member do
+      post 'treat'
+    end
+  end
+
 
   match '/signup',          to: 'users#new',                  via: 'get'
   match '/signin',          to: 'sessions#new',               via: 'get'
@@ -11,7 +17,7 @@ Pocketpharma::Application.routes.draw do
 
   match '/manage',          to: 'static_pages#manage',        via: 'get'
 
-  match '/rls_import',      to: 'static_pages#rls_import',    via: 'post'
+  # match '/rls_import',      to: 'static_pages#rls_import',    via: 'post'
   # match '/rls_normalize', to: 'static_pages#rls_normalize', via: 'post'
   # match '/medlux_import', to: 'static_pages#medlux_import', via: 'post'
   # match '/dsp_update',    to: 'static_pages#dsp_update',    via: 'post'
