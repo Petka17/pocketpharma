@@ -33,12 +33,12 @@ gem 'jbuilder', '~> 1.2'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Performance Profile
-gem 'rack-mini-profiler'
-
 group :development do
+	# Performance Profile
+	gem 'rack-mini-profiler'
+
 	# SQL optimization
-	gem 'bullet', group: :development
+	gem 'bullet'
 
 	# Better Error
 	gem 'better_errors'
