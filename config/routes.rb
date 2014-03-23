@@ -2,14 +2,20 @@ Pocketpharma::Application.routes.draw do
 
   root 'static_pages#home'
 
-  match '/help',          to: 'static_pages#help',          via: 'get'
-  match '/manage',        to: 'static_pages#manage',        via: 'get'
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
-  match '/rls_import',    to: 'static_pages#rls_import',    via: 'post'
-  match '/rls_normalize', to: 'static_pages#rls_normalize', via: 'post'
-  match '/medlux_import', to: 'static_pages#medlux_import', via: 'post'
-  match '/dsp_update',    to: 'static_pages#dsp_update',    via: 'post'
-  match '/fill_score',    to: 'static_pages#fill_score',    via: 'post'
+  match '/signup',          to: 'users#new',                  via: 'get'
+  match '/signin',          to: 'sessions#new',               via: 'get'
+  match '/signout',         to: 'sessions#destroy',           via: 'delete'
+
+  match '/manage',          to: 'static_pages#manage',        via: 'get'
+
+  match '/rls_import',      to: 'static_pages#rls_import',    via: 'post'
+  # match '/rls_normalize', to: 'static_pages#rls_normalize', via: 'post'
+  # match '/medlux_import', to: 'static_pages#medlux_import', via: 'post'
+  # match '/dsp_update',    to: 'static_pages#dsp_update',    via: 'post'
+  # match '/fill_score',    to: 'static_pages#fill_score',    via: 'post'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,17 @@
+<% if object.errors.any? %>
+
+<div id="error_explanation">
+	
+	<div class="alert alert-error">
+		При заполнении формы возникли ошибки
+	</div>
+
+	<ul>
+		<% object.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+
+	</ul>
+</div>
+
+<% end %>

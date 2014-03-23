@@ -1,0 +1,24 @@
+<h1>Новый пользователь</h1>
+
+<div class="row">
+	<div class="col-lg-4 col-lg-offset-4">
+		<%= form_for(@user) do |f| %>
+
+			<%= render 'shared/error_messages', object: f.object %>
+			
+			<%= f.label :name, "Имя" %>
+			<%= f.text_field :name %>
+
+			<%= f.label :email, "Email" %>
+			<%= f.text_field :email %>
+
+			<%= f.label :password, "Пароль" %>
+			<%= f.password_field :password %>
+
+			<%= f.label :password_confirmation, "Повторить пароль" %>
+			<%= f.password_field :password_confirmation %>
+
+			<%= f.submit "Создать", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

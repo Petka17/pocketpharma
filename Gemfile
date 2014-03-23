@@ -30,6 +30,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.0'
+
+# Performance Profile
+gem 'rack-mini-profiler'
+
 group :development do
 	# SQL optimization
 	gem 'bullet', group: :development
@@ -38,25 +44,18 @@ group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
 
-	# Rails Panale
+	# Rails Panel
 	gem 'meta_request'
+
+	# Use debugger
+	gem 'debugger'
 end
-
-# Performance Profile
-gem 'rack-mini-profiler'
-
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
