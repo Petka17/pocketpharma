@@ -1,7 +1,7 @@
 Pocketpharma::Application.routes.draw do
 
   root 'static_pages#home'
-
+  
   resources :users do
     member do
       get   'edit_ds_chain'
