@@ -25,10 +25,12 @@ en:
       user: "Пользователь"
     attributes:
       user:
-        email: "Email адрес"
+        email: "Email"
     errors:
       models:
         user:
           attributes:
             email:
               blank: "не может быть пустым"
+              invalid: имеет неверное значение
+
