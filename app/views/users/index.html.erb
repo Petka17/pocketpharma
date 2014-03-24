@@ -1,0 +1,28 @@
+<h1>Пользователи</h1>
+
+<div class="table-responsive">
+	<table class="table table-condensed table-hover" id="file_lis">
+		<tr>
+			<th>Админ</th>
+			<th>Имя</th>
+			<th>Email</th>
+			<th>Аптечная сеть</th>
+			<th>Основной телефон</th>
+		</tr>
+		
+		<% @users.each do |user| %>
+			<tr>
+				<td>
+					<% if user.admin? %>
+						<span class="glyphicon glyphicon-ok"></span>
+					<% end %>
+				</td>
+				<td><%= link_to user.name, user %></td>
+				<td><%= user.email %></td>
+				<td><%= user.dsc_name %></td>
+				<td><%= user.dsc_phone %></td>
+			</tr>
+		<% end %>
+
+	</table>
+</div>

@@ -1,23 +1,19 @@
 <div class="row">
 	<div class="col-lg-6">
-		<%= form_for @rls_file, html: { :multipart => true } do |f| %>
+		<%= form_for @rls_file, html: { role: "form" }  do |f| %>
 
 		  <%= f.hidden_field :user_id %>
-
-		  <%= f.label :name, "Название" %>
-		  <%= f.text_field :name %>
-		  
-		  <%= f.file_field :rls_file %>
-
-		  <%= f.submit "Загрузить" %>
-
+			<div class="form-group">
+			  <%= f.label :rls_file, "Выберите файлы для загрузки: " %>
+			  <%= f.file_field :rls_file, multiple: true, name: "rls_file[rls_file]" %>
+			</div>
 		<% end %>
 	</div>
 
 </div>
 
 <div class="table-responsive">
-	<table class="table table-condensed table-hover">
+	<table class="table table-condensed table-hover" id="file_lis">
 		<tr>
 			<th>Обработать</th>
 			<th>Имя</th>

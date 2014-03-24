@@ -9,12 +9,8 @@ class RlsFilesController < ApplicationController
 		@rls_products = RlsProduct.paginate(page: params[:page], per_page: 30)
 	end
 
-	def new
-	end
-
 	def create
 		@rls_file = RlsFile.create(rls_file_params)
-		redirect_to rls_files_path
 	end
 
 	def destroy
@@ -30,7 +26,7 @@ class RlsFilesController < ApplicationController
 	private
 
 		def rls_file_params
-			params.require(:rls_file).permit(:name, :user_id, :rls_file)
+			params.require(:rls_file).permit(:user_id, :rls_file)
 		end
 
 		def admin_check

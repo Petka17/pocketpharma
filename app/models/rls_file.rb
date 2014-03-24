@@ -2,19 +2,17 @@ class RlsFile < ActiveRecord::Base
 
 	require 'roo'
 
-	validates :name, 		presence: true
-	validates :user_id, presence: true
-
-	belongs_to :user
-	
 	mount_uploader :rls_file, RlsFileUploader
 
+	belongs_to :user
+
+	before_create :set_default_name
+	
 	def RlsFile.files_list
 		joins(:user).select("rls_files.*, users.name as user_name")
 	end
 
 	def treat
-		debugger
 		spreadsheet = Roo::Excel.new(rls_file.file.file.to_s)
 	  header = spreadsheet.row(1)
 		inserts = []
@@ -30,5 +28,12 @@ class RlsFile < ActiveRecord::Base
     ActiveRecord::Base.connection.execute sql
 	end
 
+	private
+
+		def set_default_name
+			debugger
+		  self.name ||= File.basename(rls_file.filename, '.*').titleize if rls_file
+		  debugger
+		end
 
 end

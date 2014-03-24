@@ -1,0 +1,20 @@
+<h1>Аптечные сети</h1>
+
+<div class="table-responsive">
+	<table class="table table-condensed table-hover">
+		<tr>
+			<th>Имя</th>
+			<th>Телефон</th>
+			<th>Описание</th>
+		</tr>
+		
+		<% @ds_chains.each do |dsc| %>
+			<tr>
+				<td><%= dsc.name %></td>
+				<td><%= dsc.phone %></td>
+				<td><%= dsc.description %></td>
+			</tr>
+		<% end %>
+
+	</table>
+</div>

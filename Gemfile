@@ -12,9 +12,6 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
-# Twitter Bootstrap 3
-gem 'bootstrap-sass', '~> 3.1.1'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -33,14 +30,24 @@ gem 'jbuilder', '~> 1.2'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Pagination
+gem 'will_paginate', '~> 3.0'
+
 # File uploader
 gem "carrierwave"
 
-# XLS import
+# File jQuery Uploader
+gem 'jquery-fileupload-rails'
+
+# XLS import (for RLS file treat)
 gem 'roo'
 
-# Pagination
-gem 'will_paginate', '~> 3.0'
+# HTML parsing
+gem 'nokogiri'
+
+# Workers
+gem 'sidekiq'
+gem 'sinatra', require: false
 
 group :development do
 	# Performance Profile
