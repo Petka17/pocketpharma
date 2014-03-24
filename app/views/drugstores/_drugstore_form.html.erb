@@ -1,0 +1,7 @@
+<%= form_for @drugstore, html: { role: "form" } do |f| %>
+
+	<%= render 'shared/drugstore_form_fields', object: f %>
+
+	<%= f.submit "Изменить", class: "btn btn-primary center-block" %>
+	
+<% end %>

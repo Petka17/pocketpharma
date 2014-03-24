@@ -10,7 +10,7 @@
 		
 		<% @ds_chains.each do |dsc| %>
 			<tr>
-				<td><%= dsc.name %></td>
+				<td><%= link_to dsc.name, dsc.user %></td>
 				<td><%= dsc.phone %></td>
 				<td><%= dsc.description %></td>
 			</tr>

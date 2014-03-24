@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323195647) do
+ActiveRecord::Schema.define(version: 20140324165205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,43 @@ ActiveRecord::Schema.define(version: 20140323195647) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ds_files", force: true do |t|
+    t.string   "file"
+    t.integer  "drugstore_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ds_products", force: true do |t|
+    t.integer  "external_id"
+    t.integer  "product_id"
+    t.string   "full_name"
+    t.float    "max_price"
+    t.float    "min_price"
+    t.float    "avg_price"
+    t.integer  "drugstore_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ds_products", ["external_id"], name: "index_ds_products_on_external_id", using: :btree
+  add_index "ds_products", ["product_id"], name: "index_ds_products_on_product_id", using: :btree
+
+  create_table "product_prices", force: true do |t|
+    t.integer  "ds_product_id"
+    t.integer  "drugstore_id"
+    t.integer  "external_id"
+    t.text     "full_name"
+    t.float    "price"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_prices", ["drugstore_id"], name: "index_product_prices_on_drugstore_id", using: :btree
+  add_index "product_prices", ["ds_product_id"], name: "index_product_prices_on_ds_product_id", using: :btree
+  add_index "product_prices", ["external_id"], name: "index_product_prices_on_external_id", using: :btree
 
   create_table "rls_files", force: true do |t|
     t.string   "name"

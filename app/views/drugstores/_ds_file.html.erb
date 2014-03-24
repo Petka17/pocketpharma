@@ -1,0 +1,11 @@
+<tr>
+	<td><%= object.file.url.split('/').last %></td>
+	<td><%= number_to_human_size object.file.size %></td>
+	<td><%= object.created_at %></td>
+	<td>
+		<%= form_for(object, url: delete_ds_file_drugstore_path(@drugstore), method: :delete) do |f| %>
+			<%= f.hidden_field :id %>
+			<%= f.submit "Удалить", class: "btn btn-xs btn-danger" %>
+		<% end %>
+	</td>
+</tr>

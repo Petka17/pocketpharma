@@ -46,7 +46,7 @@
 		
 		<% @drugstores.each do |ds| %>
 			<tr>
-				<td><%= ds.name %></td>
+				<td><%= link_to ds.name, ds %></td>
 				<td><%= ds.address %></td>
 				<td><%= ds.working_hours %></td>
 				<td><%= ds.phone %></td>

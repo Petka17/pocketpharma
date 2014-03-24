@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
 	before_filter :signed_in_check, except: [:new, :create]
-	before_filter :get_user, except: [:index, :new, :create]
-	before_filter :get_ds_chain, only: [:show, :edit_ds_chain, :new_drugstore]
+	before_filter :get_user, 				except: [:index, :new, :create]
+	before_filter :get_ds_chain, 		only: 	[:show, :edit_ds_chain, :new_drugstore]
 
 	# User list
 	def index
@@ -75,10 +75,6 @@ class UsersController < ApplicationController
 
 	private
 
-		def signed_in_check
-			redirect_to signin_path unless signed_in?
-		end
-
 		def get_user
 			@user = current_user.admin? ? User.find(params[:id]) : current_user
 		end
@@ -98,4 +94,5 @@ class UsersController < ApplicationController
 		def drugstore_params
 			params.require(:drugstore).permit(:name, :address, :working_hours, :phone)
 		end
+		
 end

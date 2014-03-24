@@ -1,8 +1,8 @@
 <%= form_for @ds_chain, url: update_ds_chain_user_path(@user), method: :post, html: { role: "form" } do |f| %>
 
 	<div class="form-group">
-		<%= f.label :name, "Имя", class: "sr-only" %>
-		<%= f.text_field :name, class: "form-control", placeholder: "Имя аптечной сети" %>
+		<%= f.label :name, "Название", class: "sr-only" %>
+		<%= f.text_field :name, class: "form-control", placeholder: "Название аптечной сети" %>
 	</div>
 
 	<div class="form-group">

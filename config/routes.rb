@@ -20,6 +20,13 @@ Pocketpharma::Application.routes.draw do
 
   resources :drugstore_chains, only: [:index, :show]
 
+  resources :drugstores, only: [:index, :show, :edit, :update] do
+    member do
+      post    'insert_ds_file'
+      delete  'delete_ds_file'
+    end
+  end
+
   match '/signup',          to: 'users#new',                  via: 'get'
   match '/signin',          to: 'sessions#new',               via: 'get'
   match '/signout',         to: 'sessions#destroy',           via: 'delete'

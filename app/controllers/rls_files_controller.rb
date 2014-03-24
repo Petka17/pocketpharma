@@ -25,16 +25,12 @@ class RlsFilesController < ApplicationController
 
 	private
 
-		def rls_file_params
-			params.require(:rls_file).permit(:user_id, :rls_file)
-		end
-
-		def admin_check
-			redirect_to root_path unless signed_in? && current_user.admin?
-		end
-
 		def get_rls_file
 			@rls_file = RlsFile.find(params[:id])
 		end
 
+		def rls_file_params
+			params.require(:rls_file).permit(:user_id, :rls_file)
+		end
+		
 end

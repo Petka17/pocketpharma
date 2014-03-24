@@ -1,6 +1,6 @@
 class DrugstoreChainsController < ApplicationController
   def index
-  	@ds_chains = DrugstoreChain.all
+  	@ds_chains = DrugstoreChain.includes(:user)
   end
 
   def show

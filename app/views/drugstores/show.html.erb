@@ -1,0 +1,71 @@
+<div class="row">
+	
+	<div class="col-lg-6">
+		<div class="well well-lg">
+
+			<dl class="dl-horizontal">
+
+				<dt>Нзвание</dt>
+				<dd><%= @drugstore.name %></dd>
+
+				<dt>Адрес</dt>
+				<dd><%= @drugstore.address %></dd>
+
+				<dt>Режим работы</dt>
+				<dd><%= @drugstore.working_hours %></dd>
+
+				<dt>Основной телефон</dt>
+				<dd><%= @drugstore.phone %></dd>
+
+			</dl>
+
+		</div>
+	
+		<%= button_to "Вернуться к списку аптек", @user, class: "btn btn-sm btn-primary center-block", method: :get %>
+	
+	</div>
+
+	<div class="col-lg-4 col-lg-offset-2">
+		<div class="well">
+			<%= render 'drugstore_form' %>
+		</div>
+	</div>
+
+</div>
+
+<div class="well">
+	<div class="row">
+		<div class="col-lg-6">
+			<%= form_for @ds_file, url: insert_ds_file_drugstore_path(@drugstore), html: { class: "form-inline",role: "form" }  do |f| %>
+
+				<div class="form-group">
+				  <%= f.label :file, "Выберите файлы для загрузки: " %>
+				  <%= f.file_field :file %>
+				</div>
+				
+			<% end %>
+		</div>
+		<div class="col-lg-6" id="progress-bar">
+		</div>
+	</div>
+</div>
+
+<div class="table-responsive">
+	<table class="table table-hover table-condensed" id="file_table">
+		<tr>
+			<th>Имя файла</th>
+			<th>Размер</th>
+			<th>Дата загрузки</th>
+			<th>Удаление</th>
+		</tr>
+		
+		<% @ds_files.each do |f| %>
+			<%= render 'ds_file', object: f %>
+		<% end %>
+
+	</table>
+</div>
+
+<script id="template-upload" type="text/x-tmpl"><div class="progress"><div class="progress-bar" style="width: 0%"></div></div></script>
+
+
