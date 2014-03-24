@@ -1,0 +1,27 @@
+<%= form_for @user, html: { role: "form" } do |f| %>
+
+	<div class="form-group">
+		<%= f.label :name, "Имя", class: "sr-only" %>
+		<%= f.text_field :name, class: "form-control", placeholder: "Введите ваше имя" %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label :name, "Email", class: "sr-only" %>
+		<%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :name, "Пароль", class: "sr-only" %>
+		<%= f.password_field :password, class: "form-control", placeholder: "Пароль" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :name, "Повторите пароль", class: "sr-only" %>
+			<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Повторить пароль" %>
+	</div>
+
+	<%= f.submit "Создать", class: "btn btn-primary center-block" %>
+
+	<%= render 'shared/error_messages', object: f.object %>
+	
+<% end %>

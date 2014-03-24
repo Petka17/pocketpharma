@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 										uniqueness: { case_sensitive: false }
 
 	validates :password             , length: { minimum: 6 }, :if => :validate_password?
-	validates :password_confirmation, presence: true        , :if => :validate_password?
+	validates :password_confirmation, length: { minimum: 6 }, :if => :validate_password?
 
 	# Pre-branche invokes
 	before_save { email.downcase! }

@@ -1,0 +1,20 @@
+<%= form_for @ds_chain, url: update_ds_chain_user_path(@user), method: :post, html: { role: "form" } do |f| %>
+
+	<div class="form-group">
+		<%= f.label :name, "Имя", class: "sr-only" %>
+		<%= f.text_field :name, class: "form-control", placeholder: "Имя аптечной сети" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :phone, "Телефон", class: "sr-only" %>
+		<%= f.text_field :phone, class: "form-control", placeholder: "Основной телефон" %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label :description, "Описание", class: "sr-only" %>
+		<%= f.text_area :description, class: "form-control", placeholder: "Описание" %>
+	</div>
+
+	<%= f.submit "Сохранить", class: "btn btn-primary center-block" %>
+
+<% end %>

@@ -68,7 +68,8 @@ group :development do
 end
 
 group :production do
-  gem 'unicorn' # make sure you follow installation instructions for this gem
+	# Web server
+  gem 'unicorn'
 
   # Heroku gems
   gem 'rails_12factor'

@@ -1,17 +1,37 @@
-.form-inline {
-  padding-bottom: 10px;
-}
-
 #logo {
-   float:               left;
-   margin-right:        10px;
    font-size:          1.7em;
    color:              white;
-   letter-spacing:       1px;
-   line-height:            1;
    &:hover {
      color:          #bbb;
      text-decoration:  none;
    }
 }
 
+.field_with_errors {
+	input {
+		border-color: #b94a48;
+		color: #b94a48;
+	}
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: square outside;
+    margin: 0 0 18px 0;
+  }
+}
+
+.alert {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
