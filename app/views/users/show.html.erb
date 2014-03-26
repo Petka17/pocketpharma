@@ -42,6 +42,9 @@
 			<th>Адрес</th>
 			<th>Режим работы</th>
 			<th>Телефон</th>
+			<% if current_user.admin? %>
+				<th>Удалить</th>
+			<% end %>
 		</tr>
 		
 		<% @drugstores.each do |ds| %>
@@ -50,6 +53,14 @@
 				<td><%= ds.address %></td>
 				<td><%= ds.working_hours %></td>
 				<td><%= ds.phone %></td>
+				<% if current_user.admin? %>
+					<td>
+						<%= form_for(ds, url: delete_drugstore_user_path(@user), method: :delete) do |f| %>
+							<%= f.hidden_field :id %>
+							<%= f.submit "Удалить", class: "btn btn-xs btn-danger", confirm: 'Вы уверены, что хотите удалить эту запись?' %>
+						<% end %>
+					</td>
+				<% end %>
 			</tr>
 		<% end %>
 

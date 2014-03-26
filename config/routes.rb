@@ -4,9 +4,10 @@ Pocketpharma::Application.routes.draw do
   
   resources :users do
     member do
-      get   'edit_ds_chain'
-      post  'update_ds_chain'
-      post  'new_drugstore'
+      get    'edit_ds_chain'
+      post   'update_ds_chain'
+      post   'new_drugstore'
+      delete 'delete_drugstore'
     end
   end
 

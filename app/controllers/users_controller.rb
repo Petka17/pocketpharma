@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
-	before_filter :signed_in_check, except: [:new, :create]
-	before_filter :get_user, 				except: [:index, :new, :create]
-	before_filter :get_ds_chain, 		only: 	[:show, :edit_ds_chain, :new_drugstore]
+	before_filter :signed_in_check, 	except: [:new, :create]
+	before_filter :admin_check, 			only: 	[:delete_drugstore]
+	before_filter :get_user, 					except: [:index, :new, :create]
+	before_filter :get_ds_chain, 			only: 	[:show, :edit_ds_chain, :new_drugstore]
 
 	# User list
 	def index
@@ -63,14 +64,21 @@ class UsersController < ApplicationController
 		redirect_to @user
 	end
 
+	# New Drugstore
 	def new_drugstore
 		if @user.drugstore_chain.nil?
-			flash[:danger] = "Укажте данные об аптечной сети"
+			flash[:danger] = "Укажите данные об аптечной сети"
 		else
 			@ds_chain.drugstores.create(drugstore_params)
 		end
 	
 		redirect_to @user
+	end
+
+	# Delete Exising Drugstore
+	def delete_drugstore
+		Drugstore.find(params[:drugstore][:id]).destroy
+  	redirect_to @user
 	end
 
 	private

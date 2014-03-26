@@ -8,17 +8,17 @@
 		</div>
 		
 		<div class="form-group">
-			<%= f.label :name, "Email", class: "sr-only" %>
-			<%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+			<%= f.label :email, "Email", class: "sr-only" %>
+			<%= f.email_field :email, class: "form-control", placeholder: "Email" %>
 		</div>
 
 		<div class="form-group">
-			<%= f.label :name, "Пароль", class: "sr-only" %>
+			<%= f.label :password, "Пароль", class: "sr-only" %>
 			<%= f.password_field :password, class: "form-control", placeholder: "Пароль" %>
 		</div>
 
 		<div class="form-group">
-			<%= f.label :name, "Повторите пароль", class: "sr-only" %>
+			<%= f.label :password_confirmation, "Повторите пароль", class: "sr-only" %>
 				<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Повторить пароль" %>
 		</div>
 
