@@ -24,5 +24,8 @@ module Pocketpharma
     config.serve_static_assets = true
 
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    
+    I18n.enforce_available_locales = false
+
   end
 end

@@ -5,8 +5,8 @@ jQuery ->
 	$('#new_ds_file').fileupload
     dataType: 'script'
     add: (e, data) ->
-      data.context = $(tmpl("template-upload", data.files[0]))
       $('.progress').remove()
+      data.context = $(tmpl("template-upload", data.files[0]))
       $('#progress-bar').append(data.context)
       data.submit()
     progress: (e, data) ->
