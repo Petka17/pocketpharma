@@ -1,6 +1,6 @@
 <div class="row">
 	
-	<div class="col-lg-6">
+	<div class="col-lg-6 col-md-5 col-sm-6">
 		<div class="well well-lg">
 
 			<dl class="dl-horizontal">
@@ -25,7 +25,7 @@
 	
 	</div>
 
-	<div class="col-lg-4 col-lg-offset-2">
+	<div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-6">
 		<div class="well">
 			<%= render 'drugstore_form' %>
 		</div>
@@ -33,37 +33,39 @@
 
 </div>
 
-<div class="well">
-	<div class="row">
-		<div class="col-lg-6">
-			<%= form_for @ds_file, url: insert_ds_file_drugstore_path(@drugstore), html: { class: "form-inline",role: "form" }  do |f| %>
+<div>
+	<div class="well">
+		<div class="row">
+			<div class="col-lg-6">
+				<%= form_for @ds_file, url: insert_ds_file_drugstore_path(@drugstore), html: { class: "form-inline",role: "form" }  do |f| %>
 
-				<div class="form-group">
-				  <%= f.label :file, "Выберите файлы для загрузки: " %>
-				  <%= f.file_field :file %>
-				</div>
-				
-			<% end %>
-		</div>
-		<div class="col-lg-6" id="progress-bar">
+					<div class="form-group">
+					  <%= f.label :file, "Выберите файлы для загрузки: " %>
+					  <%= f.file_field :file %>
+					</div>
+					
+				<% end %>
+			</div>
+			<div class="col-lg-6" id="progress-bar">
+			</div>
 		</div>
 	</div>
-</div>
 
-<div class="table-responsive">
-	<table class="table table-hover table-condensed" id="file_table">
-		<tr>
-			<th>Имя файла</th>
-			<th>Размер</th>
-			<th>Дата загрузки</th>
-			<th>Удаление</th>
-		</tr>
-		
-		<% @ds_files.each do |f| %>
-			<%= render 'ds_file', object: f %>
-		<% end %>
+	<div class="table-responsive">
+		<table class="table table-hover table-condensed" id="file_table">
+			<tr>
+				<th>Имя файла</th>
+				<th>Размер</th>
+				<th>Дата загрузки</th>
+				<th>Удаление</th>
+			</tr>
+			
+			<% @ds_files.each do |f| %>
+				<%= render 'ds_file', object: f %>
+			<% end %>
 
-	</table>
+		</table>
+	</div>
 </div>
 
 <script id="template-upload" type="text/x-tmpl"><div class="progress"><div class="progress-bar" style="width: 0%"></div></div></script>

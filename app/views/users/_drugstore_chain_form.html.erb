@@ -1,20 +1,24 @@
-<%= form_for @ds_chain, url: update_ds_chain_user_path(@user), method: :post, html: { role: "form" } do |f| %>
+<div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
 
-	<div class="form-group">
-		<%= f.label :name, "Название", class: "sr-only" %>
-		<%= f.text_field :name, class: "form-control", placeholder: "Название аптечной сети" %>
-	</div>
+	<%= form_for @ds_chain, url: update_ds_chain_user_path(@user), method: :post, html: { role: "form" } do |f| %>
 
-	<div class="form-group">
-		<%= f.label :phone, "Телефон", class: "sr-only" %>
-		<%= f.text_field :phone, class: "form-control", placeholder: "Основной телефон" %>
-	</div>
-	
-	<div class="form-group">
-		<%= f.label :description, "Описание", class: "sr-only" %>
-		<%= f.text_area :description, class: "form-control", placeholder: "Описание" %>
-	</div>
+		<div class="form-group">
+			<%= f.label :name, "Название", class: "sr-only" %>
+			<%= f.text_field :name, class: "form-control", placeholder: "Название аптечной сети" %>
+		</div>
 
-	<%= f.submit "Сохранить", class: "btn btn-primary center-block" %>
+		<div class="form-group">
+			<%= f.label :phone, "Телефон", class: "sr-only" %>
+			<%= f.text_field :phone, class: "form-control", placeholder: "Основной телефон" %>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label :description, "Описание", class: "sr-only" %>
+			<%= f.text_area :description, class: "form-control", placeholder: "Описание" %>
+		</div>
 
-<% end %>
+		<%= f.submit "Сохранить", class: "btn btn-primary center-block" %>
+
+	<% end %>
+
+</div>
