@@ -32,6 +32,8 @@ class	RlsFileWorker < Struct.new(:file_url)
 		puts "Update DB"
 
     ActiveRecord::Base.connection.execute sql
+
+		puts "Finish"
 	end
 
 	def before(job)
