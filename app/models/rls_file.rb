@@ -22,7 +22,7 @@ class RlsFile < ActiveRecord::Base
 		end
 
 		def set_default_size
-		  self.size = rls_file.size() if rls_file
+		  self.size ||= rls_file.size() if rls_file
 		end
 
 end
