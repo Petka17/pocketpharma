@@ -19,7 +19,7 @@ class RlsFilesController < ApplicationController
 	end
 
 	def treat
-		@rls_file.treat
+		@rls_file.delay.treat
 		redirect_to rls_files_path
 	end
 

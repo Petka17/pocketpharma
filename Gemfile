@@ -46,11 +46,14 @@ gem 'jquery-fileupload-rails'
 gem 'roo'
 
 # HTML parsing
-gem 'nokogiri'
+# gem 'nokogiri'
 
 # Workers
-gem 'sidekiq'
-gem 'sinatra', require: false
+# gem 'sidekiq'
+# gem 'sinatra', require: false
+
+# Background Process
+gem 'delayed_job_active_record'
 
 group :development do
 	# Performance Profile

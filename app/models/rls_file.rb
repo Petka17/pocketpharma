@@ -9,7 +9,12 @@ class RlsFile < ActiveRecord::Base
 	before_create :set_default_name
 	
 	def RlsFile.files_list
-		joins(:user).select("rls_files.*, users.name as user_name")
+		includes(:user)
+		# joins(:user).select("rls_files.*, users.name as user_name")
+	end
+
+	def user_name
+		user.name if user		
 	end
 
 	def treat
@@ -31,9 +36,7 @@ class RlsFile < ActiveRecord::Base
 	private
 
 		def set_default_name
-			debugger
-		  self.name ||= File.basename(rls_file.filename, '.*').titleize if rls_file
-		  debugger
+		  self.name ||= File.basename(rls_file.filename, '.*') if rls_file
 		end
 
 end
