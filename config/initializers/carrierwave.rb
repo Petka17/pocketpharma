@@ -14,8 +14,8 @@ CarrierWave.configure do |config|
     # :endpoint               => 'https://s3.example.com:8080' # defaults to nil
   }
 
-  config.fog_directory  = 'pocketpharma-dev' if Rails.env.development?    # required
-  config.fog_directory  = 'pocketpharma-dev' if Rails.env.production?   # required
+  config.fog_directory  = 'pocketpharma-dev'  if Rails.env.development?  # required
+  config.fog_directory  = 'pocketpharma-prod' if Rails.env.production?   # required
   
   # config.fog_public     = false                                  # optional, defaults to true
   # config.fog_attributes = {'Cache-Control'=>'max-age=315576000'} # optional, defaults to {}

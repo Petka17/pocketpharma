@@ -1,5 +1,5 @@
 <% if @rls_file.new_record? %>
   alert('Failed');
 <% else %>
-  $('#file_table').append("<%=j render partial: 'rls_file_row', locals: { object: @rls_file } %>");
+  $('#file_table').append("<%=j render partial: 'rls_file_row', locals: { rls_file: @rls_file } %>");
 <% end %>

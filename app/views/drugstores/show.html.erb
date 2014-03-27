@@ -59,11 +59,9 @@
 			<th>Дата загрузки</th>
 			<th>Удаление</th>
 		</tr>
-		
-		<% @ds_files.each do |f| %>
-			<%= render 'ds_file_row', object: f %>
-		<% end %>
 
+		<%= render partial: 'ds_file_row', collection: @ds_files, as: :ds_file %>
+		
 	</table>
 </div>
 

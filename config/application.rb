@@ -27,5 +27,7 @@ module Pocketpharma
     
     I18n.enforce_available_locales = false
 
+    config.autoload_paths += %W( #{Rails.root}/app/workers )
+
   end
 end

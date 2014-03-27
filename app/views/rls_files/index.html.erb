@@ -1,15 +1,19 @@
+<%= render partial: 'shared/rls_admin_nav', locals: { menu_item: { file: "active" } } %>
+
 <div class="well">
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6">
+
 			<%= form_for @rls_file, html: { class: "form-inline", role: "form" }  do |f| %>
 
 			  <%= f.hidden_field :user_id %>
 
 				<div class="form-group">
-				  <%= f.label :rls_file, "Выберите файлы для загрузки: " %>
+				  <%= f.label :rls_file, "Выберите файлы для загрузки:" %>
 				  <%= f.file_field :rls_file %>
 				</div>
 			<% end %>
+
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6" id="progress-bar">
 		</div>
@@ -27,47 +31,8 @@
 			<th class="col-sm-1"></th>
 		</tr>
 		
-		<% @rls_files.each do |file| %>
-			<%= render 'rls_file_row', object: file %>
-		<% end %>
-
-	</table>
-</div>
-
-<%= will_paginate @rls_products %>
-
-<div class="table-responsive">
-	<table class="table table-condensed table-hover">
-		<tr>
-			<th>Код РЛС</th>
-			<th>Название группы</th>
-			<th>Категория</th>
-			<th>Тип</th>
-			<th>Форма</th>
-			<th>Дозировка</th>
-			<th>Фасовка</th>
-			<th>Производитель</th>
-			<th>Страна</th>
-			<th>МНН</th>
-			<th>Штрих-код</th>
-		</tr>
+		<%= render partial: 'rls_file_row', collection: @rls_files, as: :rls_file %>
 		
-		<% @rls_products.each do |product| %>
-			<tr>
-				<td><%= product.code %></td>
-				<td><%= product.name %></td>
-				<td><%= product.category %></td>
-				<td><%= product.product_group_type %></td>
-				<td><%= product.product_form %></td>
-				<td><%= product.dose %></td>
-				<td><%= product.pack %></td>
-				<td><%= product.company %></td>
-				<td><%= product.country %></td>
-				<td><%= product.inn %></td>
-				<td><%= product.ean %></td>
-			</tr>
-		<% end %>
-
 	</table>
 </div>
 

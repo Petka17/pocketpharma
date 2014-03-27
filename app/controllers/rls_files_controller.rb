@@ -6,7 +6,6 @@ class RlsFilesController < ApplicationController
 	def index
 		@rls_files = RlsFile.files_list
 		@rls_file = RlsFile.new(user_id: current_user.id)
-		@rls_products = RlsProduct.paginate(page: params[:page], per_page: 30)
 	end
 
 	def create
@@ -19,7 +18,7 @@ class RlsFilesController < ApplicationController
 	end
 
 	def treat
-		@rls_file.delay.treat
+		@job = Delayed::Job.enqueue(RlsFileWorker.new(@rls_file.rls_file.url()))
 		redirect_to rls_files_path
 	end
 

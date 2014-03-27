@@ -1,15 +1,15 @@
 <tr>
-	<td><%= object.name %></td>
-	<td><%# number_to_human_size object.rls_file.size %></td>
-	<td><%= object.created_at %></td>
-	<td><%= object.user_name %></td>
+	<td><%= rls_file.name %></td>
+	<td><%= number_to_human_size rls_file.size unless rls_file.nil? %></td>
+	<td><%= rls_file.created_at %></td>
+	<td><%= rls_file.user_name %></td>
  	<td>
-		<%= form_for object, url: object, method: :delete, html: { class: "form-inline" } do |f| %>
+		<%= form_for rls_file, url: rls_file, method: :delete, html: { class: "form-inline" } do |f| %>
 			<%= f.submit "Удалить", class: "btn btn-sm btn-danger" %>
 		<% end %>
  	</td>
  	<td>
-		<%= form_for object, url: treat_rls_file_path(object), method: :post, html: { class: "form-inline" } do |f| %>
+		<%= form_for rls_file, url: treat_rls_file_path(rls_file), method: :post, html: { class: "form-inline" } do |f| %>
 			<%= f.submit "Обработать", class: "btn btn-sm btn-primary" %>
 		<% end %>	
  	</td>
