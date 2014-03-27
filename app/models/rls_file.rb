@@ -18,7 +18,7 @@ class RlsFile < ActiveRecord::Base
 	end
 
 	def treat
-		spreadsheet = Roo::Excel.new(rls_file.file.file.to_s)
+		spreadsheet = Roo::Excel.new(rls_file.url())
 	  header = spreadsheet.row(1)
 		inserts = []
 

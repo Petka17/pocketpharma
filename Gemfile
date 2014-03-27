@@ -39,6 +39,9 @@ gem 'will_paginate', '~> 3.0'
 # File uploader
 gem "carrierwave"
 
+# Amazon S3
+gem "fog"
+
 # File jQuery Uploader
 gem 'jquery-fileupload-rails'
 
@@ -46,7 +49,7 @@ gem 'jquery-fileupload-rails'
 gem 'roo'
 
 # HTML parsing
-# gem 'nokogiri'
+gem 'nokogiri'
 
 # Workers
 # gem 'sidekiq'
