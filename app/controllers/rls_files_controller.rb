@@ -19,9 +19,10 @@ class RlsFilesController < ApplicationController
 
 	def treat
 		@job = Delayed::Job.enqueue(RlsFileWorker.new(@rls_file.rls_file.url()))
-		redirect_to rls_files_path
 	end
 
+
+	
 	private
 
 		def get_rls_file

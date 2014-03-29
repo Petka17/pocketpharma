@@ -26,6 +26,8 @@ class	RlsFileWorker < Struct.new(:file_url)
  	  	end
 
 	  end
+	  
+	  job.update_attribute :progress, 100
 
 		sql = "INSERT INTO rls_products (code, name, category, product_group_type, product_form, dose, pack, company, country, inn, ean) VALUES #{inserts.join(", ")}"
 

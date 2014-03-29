@@ -1,0 +1,23 @@
+<% if @progress < 0 %>
+	$('#progress-bar').removeAttr('data-job_id');
+	$('#progress-bar').empty();
+<% else %>
+	<% if @progress == 100 %>
+		$('#progress-bar').html("<h3>Обновление базы</h3>");
+	<% elsif @progress > 0 %>
+		$('#progress-bar')
+			.empty()
+			.append("<div></div>")
+			.children()
+				.addClass("progress")
+				.append("<div></div>")
+				.children()
+					.addClass("progress-bar")
+					.attr("role", "progressbar")
+					.attr("aria-valuenow", "<%= @progress %>")
+					.attr("aria-valuemin", "0")
+					.attr("aria-valuemax", "100")
+					.attr("style", "width: <%= @progress %>%;");
+	<% end %>
+	RlsFileProgressPoller.poll();
+<% end %>

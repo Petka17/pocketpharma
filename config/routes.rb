@@ -19,6 +19,8 @@ Pocketpharma::Application.routes.draw do
     end
   end
 
+  match '/get_progress/:id', to: 'delayed_jobs#get_progress', via: 'get'
+
   resources :drugstore_chains, only: [:index, :show]
 
   resources :drugstores, only: [:index, :show, :edit, :update] do

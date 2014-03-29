@@ -9,7 +9,7 @@
 		<% end %>
  	</td>
  	<td>
-		<%= form_for rls_file, url: treat_rls_file_path(rls_file), method: :post, html: { class: "form-inline" } do |f| %>
+		<%= form_for rls_file, url: treat_rls_file_path(rls_file), method: :post, remote: true, html: { class: "form-inline" } do |f| %>
 			<%= f.submit "Обработать", class: "btn btn-sm btn-primary" %>
 		<% end %>	
  	</td>
